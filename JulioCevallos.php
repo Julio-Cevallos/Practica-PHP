@@ -1,11 +1,11 @@
 <?php
 	//recibe.php
-    /*
+  /*
  	if ( $_GET["nombre"] || $_GET["menu"] ) {
 		echo "Bienvenido ". $_GET['nombre']. ".<br>";
         echo "Hoy deseas desayunar " . $_GET['menu'] . ".";
   	}
-    */
+  */
 ?>
 
 <!DOCTYPE html>
@@ -56,7 +56,7 @@
       echo var_dump($array);
     ?>
     
-    <form action="" method="GET">
+    <form action="recibe.php" method="GET">
       <label for="nombre">Escribe tu nombre</label><br>
       <input type="text" id="nombre" name="nombre"><br>
       <label for="menu">Escribe el menu</label><br>
