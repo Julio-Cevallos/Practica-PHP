@@ -1,11 +1,12 @@
 <?php 
-    if(!isset($_SESION['fullname'])){
-        $_SESION['msg'] = "Primero debes iniciar sesion";
+    session_start();
+    if(!isset($_SESSION['fullname'])){
+        $_SESSION['msg'] = "Primero debes iniciar sesion";
         header('location: login.php ');
     }
     if(isset($_GET['logout'])){
-        sesion_destroy();
-        unset($_SESION['fullname']);
+        session_destroy();
+        unset($_SESSION['fullname']);
         header('location: login.php ');
     }
 ?>
@@ -23,20 +24,20 @@
         </div>
         <div class="content">
             <!--      aviso      -->
-            <?php if(isset($_SESION['success'])): ?>
+            <?php if(isset($_SESSION['success'])): ?>
             <div class="error success">
                 <h3>
                     <?php 
-                        echo $_SESION['success'];
-                        unset($_SESION['success']);
+                        echo $_SESSION['success'];
+                        unset($_SESSION['success']);
                     ?>
                 </h3>
             </div>
             <?php endif ?>
 
             <!--      logeado                 -->
-            <?php if(isset($_SESION['fullname'])): ?>
-            <p> Bienvenido <strong> <?php echo $_SESION['fullname']; ?> </strong> </P>
+            <?php if(isset($_SESSION['fullname'])): ?>
+            <p> Bienvenido <strong> <?php echo $_SESSION['fullname']; ?> </strong> </P>
             <p> <a href="index.php?logout='1'" style="color: red;"> Salir </a> </p>
             <?php endif ?>
         </div>
